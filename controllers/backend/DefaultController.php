@@ -1,7 +1,8 @@
 <?php
 namespace kouosl\sss\controllers\backend;
-
-
+use kouosl\sss\models\Usersss;
+use kouosl\sss\models\Sss;
+use Yii;
 /**
  * Default controller for the `sss` module
  */
@@ -13,6 +14,25 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
      */
     public function actionIndex()
     {
-        return $this->render('_index');
+         $model = new Sss();
+
+         if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
+                  
+                     if ($model->save()) {
+                        Yii::$app->session->setFlash('success', 'Başarılı. Soru eklendi.');
+                        } else {
+                            Yii::$app->session->setFlash('error', 'Hata. Bir sorun meydana geldi.');
+                        }      
+                
+            return $this->refresh();
+        } else {
+            $usersss = Yii::$app->db->createCommand('SELECT * FROM usersss')->queryAll();
+            return $this->render('_index', [
+                'usersss' => $usersss,
+                'model' => $model,
+                
+                
+            ]);
+        }
     }
 }
