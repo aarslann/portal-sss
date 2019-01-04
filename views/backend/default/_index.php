@@ -26,7 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'question')->textarea(['rows' => 6])?>
 
                 <?= $form->field($model, 'answer')->textarea(['rows' => 6]) ?>
-
                
 
                 <div class="form-group">
@@ -44,10 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-9">
             <?php $i=1; foreach($usersss as $value){ ?>   
                     <div class="panel panel-primary">
-                        <div class="panel-heading panel-primary question" id="<?php echo $i; ?>"><h3><?php echo $value["question"]; ?></h3></div>
+                        <div class="panel-heading panel-primary question" id=" <?php echo $i; ?>"><h3><?php echo $value["question"];  ?>  </h3></div>
                      <div class="<?php echo $i; ?> content" style="display;">
                           <div class="panel-body"><?php echo $value["email"]; ?></div>
-                      <div class="panel-footer"><b></b></div>
+                      <div class="panel-footer">  <?= Html::a('SORUYU SİL', ['class' => 'btn btn-success', 'delete-function', 'ID' => $value["id"]]) ?> <b></b></div>
                      </div>
 
                     </div>                                          

@@ -12,24 +12,6 @@ $this->params['breadcrumbs'][] = $this->title; ?>
 <div class="site-contact">
     
 
- <h3>Yanıt bulamadınız mı? Bize ulaşın.</h3>
-
- <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>    
-
-              <?= $form->field($model, 'question')->textarea(['rows' => 4]) ?>
-
-              <?= $form->field($model, 'email')->textarea(['rows' => 1]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Gönder', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>
-
 <h1>Sıkça Sorulan Sorular</h1>
     <div class="row">
         <div class="col-lg-9">
@@ -45,6 +27,26 @@ $this->params['breadcrumbs'][] = $this->title; ?>
 
                 
              <?php $i++; } ?>
+        </div>
+    </div>
+
+
+ <h2>Yanıt bulamadınız mı? Bize ulaşın.</h2>
+
+
+     <div class="row">
+        <div class="col-lg-5">
+            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>    
+
+              <?= $form->field($model, 'question')->textarea(['rows' => 4]) ?>
+
+              <?= $form->field($model, 'email')->textarea(['rows' => 1]) ?>
+
+                <div class="form-group">
+                    <?= Html::submitButton('Gönder', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                </div>
+
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 

@@ -7,6 +7,7 @@ use Yii;
 /**
  * This is the model class for table "usersss".
  *
+ * @property int $id
  * @property string $question
  * @property string $email
  */
@@ -37,6 +38,7 @@ class Usersss extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id' => 'ID',
             'question' => 'Question',
             'email' => 'Email',
         ];
