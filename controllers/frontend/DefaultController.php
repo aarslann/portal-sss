@@ -19,7 +19,7 @@ class DefaultController extends \kouosl\base\controllers\frontend\BaseController
     	if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
                   
                      if ($model->save()) {
-                        Yii::$app->session->setFlash('success', 'Başarılı. Soru eklendi.');
+                        Yii::$app->session->setFlash('success', 'Sorunuz iletildi.');
                         } else {
                             Yii::$app->session->setFlash('error', 'Hata. Bir sorun meydana geldi.');
                         }      

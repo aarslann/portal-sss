@@ -56,9 +56,26 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 
+ <h1>Gönderilen Son 5 Soru</h1>
+            <table class="table table-striped table">
+                <thead>
+                    <tr>
+                        <th>Soru id</th>
+                        <th>Kategori</th>
+                        <th>Soru</th>
+                        <th>Cevap</th>
 
-
-
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                  foreach ($tablo2 as $key => $value) {
+                      echo "<tr><th>".$value["id"]."</th><th>".$value["category"]."</th><th>".$value["question"]."</th><th>".$value["answer"]."</th></tr>";
+                  }
+                  ?>
+                </tbody>
+            </table>
+        </div>
 
 </div>
 

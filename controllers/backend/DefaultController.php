@@ -15,7 +15,7 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
     public function actionIndex()
     {
          $model = new Sss();
-
+         $tablo2 = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc limit 0,5")->queryAll();
          if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
                   
                      if ($model->save()) {
@@ -30,6 +30,7 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
             return $this->render('_index', [
                 'usersss' => $usersss,
                 'model' => $model,
+                'tablo2' => $tablo2,
                 
                 
             ]);
@@ -40,7 +41,7 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
 public function actionSendIndex() {
  {
          $model = new Sss();
-
+         $tablo2 = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc limit 0,5")->queryAll();
          if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
                   
                      if ($model->save()) {
@@ -55,6 +56,7 @@ public function actionSendIndex() {
             return $this->render('_index', [
                 'usersss' => $usersss,
                 'model' => $model,
+                'tablo2' => $tablo2,
                 
                 
             ]);
@@ -68,13 +70,13 @@ public function actionSendIndex() {
 
     public function actionDeleteFunction($ID){
         $model = new Sss();
-
+        $tablo2 = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc limit 0,5")->queryAll();
         if (isset($ID) && $ID!='') {
             $formitem = Usersss::findOne($ID);
             if($formitem != null){
             $formitem->delete();
             $usersss = Yii::$app->db->createCommand('SELECT * FROM usersss')->queryAll();
-            return $this->render('_index', ['usersss' => $usersss, 'model' => $model,]);
+            return $this->render('_index', ['usersss' => $usersss, 'model' => $model,'tablo2' => $tablo2,]);
         }
         else {
             if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
@@ -91,6 +93,7 @@ public function actionSendIndex() {
             return $this->render('_index', [
                 'usersss' => $usersss,
                 'model' => $model,
+                'tablo2' => $tablo2,
                 
                 
             ]);
