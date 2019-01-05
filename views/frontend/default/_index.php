@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title; ?>
                     <div class="panel panel-primary">
                         <div class="panel-heading panel-primary question" id="<?php echo $i; ?>"><h3><?php echo $value["question"]; ?></h3></div>
                      <div class="<?php echo $i; ?> content" style="display;">
-                          <div class="panel-body"><?php echo $value["answer"]; ?><hr /><?php echo $value["id"];?>. Soru</div>
+                          <div class="panel-body"><?php echo $value["answer"]; ?></div>
                       <div class="panel-footer"><b>Kategori: <?php echo $value["category"]." " ?></b></div>
                      </div>
 

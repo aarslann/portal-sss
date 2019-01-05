@@ -19,8 +19,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-                <?= $form->field($model, 'id')->textInput(['autofocus' => true]) ?>
-
                 <?= $form->field($model, 'category') ?>
 
                 <?= $form->field($model, 'question')->textarea(['rows' => 6])?>
@@ -37,16 +35,16 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 
-<h3>Kullanıcıların sormuş olduğu sorular</h3>
-
-<div class="row">
-        <div class="col-lg-9">
-            <?php $i=1; foreach($usersss as $value){ ?>   
+ <h1>Gönderilen Sorular</h1>
+           <div class="row">
+        <div class="col-lg-9">  
+            <?php $i=1; foreach($sss as $value){ ?>   
                     <div class="panel panel-primary">
                         <div class="panel-heading panel-primary question" id=" <?php echo $i; ?>"><h3><?php echo $value["question"];  ?>  </h3></div>
                      <div class="<?php echo $i; ?> content" style="display;">
-                          <div class="panel-body"><?php echo $value["email"]; ?></div>
-                      <div class="panel-footer">  <?= Html::a('SORUYU SİL', ['class' => 'btn btn-success', 'delete-function', 'ID' => $value["id"]]) ?> <b></b></div>
+                          <div class="panel-body"><?php echo $value["answer"]; ?> </hr>  </div> 
+                      <div class="panel-footer"><?php echo $value["category"]; ?>   <b></b></div>
+                      <div class="panel-footer"> <?= Html::a('SORUYU SİL', ['class' => 'btn btn-success', 'delete-function', 'ID' => $value["id"]]) ?> <b></b></div>
                      </div>
 
                     </div>                                          
@@ -56,21 +54,21 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 
- <h1>Gönderilen Son 5 Soru</h1>
-            <table class="table table-striped table">
+
+
+    <h1>Kullanıcıların sorduğu sorular</h1>
+            <table class="table table-striped table-dark table-bordered">
                 <thead>
                     <tr>
-                        <th>Soru id</th>
-                        <th>Kategori</th>
                         <th>Soru</th>
-                        <th>Cevap</th>
-
+                        <th>Email</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
                   foreach ($tablo2 as $key => $value) {
-                      echo "<tr><th>".$value["id"]."</th><th>".$value["category"]."</th><th>".$value["question"]."</th><th>".$value["answer"]."</th></tr>";
+                      echo "<tr><th>".$value["question"]."</th><th>".$value["email"]."</th></tr>";
                   }
                   ?>
                 </tbody>

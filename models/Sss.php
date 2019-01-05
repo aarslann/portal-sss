@@ -28,8 +28,7 @@ class Sss extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'category', 'question', 'answer'], 'required'],
-            [['id'], 'integer'],
+            [['category', 'question', 'answer'], 'required'],
             [['question', 'answer'], 'string'],
             [['category'], 'string', 'max' => 20],
         ];

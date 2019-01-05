@@ -15,7 +15,8 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
     public function actionIndex()
     {
          $model = new Sss();
-         $tablo2 = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc limit 0,5")->queryAll();
+         $tablo2 = Yii::$app->db->createCommand("SELECT * FROM usersss order by 'id' desc")->queryAll();
+         $sss = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc")->queryAll();
          if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
                   
                      if ($model->save()) {
@@ -26,11 +27,12 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
                 
             return $this->refresh();
         } else {
-            $usersss = Yii::$app->db->createCommand('SELECT * FROM usersss')->queryAll();
+            $usersss = Yii::$app->db->createCommand("SELECT * FROM usersss order by 'id' desc")->queryAll();
             return $this->render('_index', [
                 'usersss' => $usersss,
                 'model' => $model,
                 'tablo2' => $tablo2,
+                'sss' => $sss,
                 
                 
             ]);
@@ -41,7 +43,8 @@ class DefaultController extends \kouosl\base\controllers\backend\BaseController
 public function actionSendIndex() {
  {
          $model = new Sss();
-         $tablo2 = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc limit 0,5")->queryAll();
+         $tablo2 = Yii::$app->db->createCommand("SELECT * FROM usersss order by 'id' desc")->queryAll();
+         $sss = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc")->queryAll();
          if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
                   
                      if ($model->save()) {
@@ -52,11 +55,12 @@ public function actionSendIndex() {
                 
             return $this->refresh();
         } else {
-            $usersss = Yii::$app->db->createCommand('SELECT * FROM usersss')->queryAll();
+            $usersss = Yii::$app->db->createCommand("SELECT * FROM usersss order by 'id' desc")->queryAll();
             return $this->render('_index', [
                 'usersss' => $usersss,
                 'model' => $model,
                 'tablo2' => $tablo2,
+                'sss' => $sss,
                 
                 
             ]);
@@ -70,13 +74,15 @@ public function actionSendIndex() {
 
     public function actionDeleteFunction($ID){
         $model = new Sss();
-        $tablo2 = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc limit 0,5")->queryAll();
+        $tablo2 = Yii::$app->db->createCommand("SELECT * FROM usersss order by 'id' desc")->queryAll();
+        $sss = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc")->queryAll();
         if (isset($ID) && $ID!='') {
-            $formitem = Usersss::findOne($ID);
+            $formitem = Sss::findOne($ID);
             if($formitem != null){
             $formitem->delete();
-            $usersss = Yii::$app->db->createCommand('SELECT * FROM usersss')->queryAll();
-            return $this->render('_index', ['usersss' => $usersss, 'model' => $model,'tablo2' => $tablo2,]);
+            $usersss = Yii::$app->db->createCommand("SELECT * FROM usersss order by 'id' desc")->queryAll();
+            $sss = Yii::$app->db->createCommand("SELECT * FROM sss order by 'id' desc")->queryAll();
+            return $this->render('_index', ['usersss' => $usersss, 'model' => $model,'tablo2' => $tablo2, 'sss' => $sss,]);
         }
         else {
             if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
@@ -89,11 +95,12 @@ public function actionSendIndex() {
                 
             return $this->refresh();
         } else {
-            $usersss = Yii::$app->db->createCommand('SELECT * FROM usersss')->queryAll();
+            $usersss = Yii::$app->db->createCommand("SELECT * FROM usersss order by 'id' desc")->queryAll();
             return $this->render('_index', [
                 'usersss' => $usersss,
                 'model' => $model,
                 'tablo2' => $tablo2,
+                'sss' => $sss,
                 
                 
             ]);
