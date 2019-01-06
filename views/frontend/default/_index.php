@@ -4,15 +4,23 @@ use kouosl\theme\widgets\Portlet;
 use yii\bootstrap\ActiveForm;
 use kouosl\sss\models\Usersss;
 use kouosl\sss\models\Sss;
+use kouosl\sss\Module;
+use kouosl\site\models\Setting;
 
 $this->title = 'Sıkça sorulan sorular';
 $data['title'] = Html::encode($this->title);
 $this->params['breadcrumbs'][] = $this->title; ?>
 
 <div class="site-contact">
-    
+  <h1>  <?php 
+            $lang = yii::$app->session->get('lang');
+      \Yii::$app->language = $lang;
+      yii::$app->session->set('lang',$lang);
+      \Yii::$app->language = 'tr-TR';
+            echo Module::t('sss','Frequently Asked Questions');
+            ?> </h1>
 
-<h1>Sıkça Sorulan Sorular</h1>
+
     <div class="row">
         <div class="col-lg-9">
             <?php $i=1; foreach($sss as $value){ ?>   
