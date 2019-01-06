@@ -39,7 +39,10 @@ $this->params['breadcrumbs'][] = $this->title; ?>
     </div>
 
 
+
  <h2>Yanıt bulamadınız mı? Bize ulaşın.</h2>
+
+  <img src="https://www.elegantthemes.com/blog/wp-content/uploads/2015/10/client-questions-featured.png">
 
 
      <div class="row">
